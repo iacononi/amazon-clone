@@ -21,15 +21,16 @@ function Header() {
             </div>
 
                  <div className="header__nav">
-                <div className="header__option">
-                    <span className="header__optionLineOne">
-                        Hello Guest
-                    </span>
-                    <span className="header__optionLineTwo">
+                    <Link to='/login'>
+                        <div className="header__option">
+                            <span className="header__optionLineOne">
+                             Hello Guest
+                        </span>
+                            <span className="header__optionLineTwo">
                         Sign In
-                    </span>
-                </div>
-
+                        </span>
+                        </div>
+                    </Link>
                 <div className="header__option">
                     <span className="header__optionLineOne">
                         Returns
