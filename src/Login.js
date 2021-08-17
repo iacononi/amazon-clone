@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
 import './Login.css'
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { auth } from "./firebase";
 
 function Login() {
+    const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const signIn = e => {
         e.preventDefault();
+        auth.signInWithEmailAndPassword(email, password)
+        .then(auth => {
+            history.push('/')
+        })
+        .catch(error => alert(error.message))
     }
 
     const register = e => {
         e.preventDefault();
+        auth.createUserWithEmailAndPassword(email, password)
+        .then((auth) => {
+            // it successfully created a new user with email and password
+            if (auth) {
+                history.push('/')
+            }
+        })
+        .catch(error => alert(error.message))
+
     }
 
     return (
@@ -38,7 +54,8 @@ function Login() {
 
                 <p>
                     By signing-in to this fake amazon clone you hereby agree to give me access to you pornhub premium account 
-                </p>  
+                </p> 
+                <button onClick={register} className='login__registerButton'>Create your Amazon Account</button> 
             </div>
         </div>
     )
