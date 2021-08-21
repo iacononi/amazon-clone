@@ -53,7 +53,7 @@ function Login() {
                 </form>
 
                 <p>
-                    By signing-in to this fake amazon clone you hereby agree to give me access to you pornhub premium account 
+                   By singing up, you agree to the website terms and conditions
                 </p> 
                 <button onClick={register} className='login__registerButton'>Create your Amazon Account</button> 
             </div>
