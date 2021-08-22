@@ -8,6 +8,7 @@ import Login from "./Login";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import Payment from "./Payment";
+import Orders from "./Orders";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
@@ -41,6 +42,9 @@ function App() {
       <div className="app">   
       <Header />
           <Switch>
+          <Route path="/orders">
+              <Orders />
+            </Route>
             <Route path="/login">
               <Login />
             </Route>
