@@ -9,8 +9,10 @@ import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import Payment from "./Payment";
 import Orders from "./Orders";
+import Contact from "./Contact";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import Footer from "./Footer";
 
 const promise = loadStripe('pk_test_51JPloVHnY18H0aVP13YqlQu9RCru9R58Vexd7c1PycsQsr4JxxgPz2FIyjU7c9uGZqcfr7vMbWWWUiYnaiPL5l8500rWeo2ku8');
 
@@ -56,10 +58,14 @@ function App() {
                 <Payment />
               </Elements>
             </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
             <Route path="/">       
               <Home />
             </Route>
           </Switch>
+          <Footer/>
       </div>
     </Router>
   );
