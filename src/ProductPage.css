@@ -1,0 +1,113 @@
+.productPage__container {
+    display: flex;
+    padding: 20px;
+    padding-top: 57px;
+}
+
+.productPage__left {
+    flex: 0 1 50%;
+    margin-right: 75px;
+}
+
+.productPage__left img {
+    display: block;
+    margin: auto;
+    width: auto;
+    object-fit: cover;
+    height: 544px;
+}
+
+.productPage__right {
+    flex: 0 1 50%;
+}
+
+.productPage__right h4 {
+    font-size: 1.25rem;
+    line-height: 1.1;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #020303;
+}
+.productPage__price {
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.20833;
+    color: #212323;
+}
+
+.productPage__atc {
+    width: 300px;
+    height: 40px;
+    margin-top: 20px;
+    background: black;
+    color: white;
+    border: none;
+    font-weight: 500;
+    font-size: .9375rem;
+    line-height: 1.2;
+    letter-spacing: .06667em;
+    text-transform: uppercase; 
+    cursor: pointer;
+    border: solid 1px black;
+}
+
+.productPage__atc:hover {
+    background: white;
+    color: black;
+
+}
+
+.productPage__quantity {
+    display: block;
+    margin-top: 20px;
+ }
+   
+   .productPage__quantity .input-text.qty {
+    width: 199px;
+    height: 39px;
+    padding: 0 5px;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid #efefef;
+   }
+   
+   .productPage__quantity.buttons_added {
+    text-align: left;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: top; }
+   
+   .productPage__quantity.buttons_added input {
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+    box-shadow: none;
+   }
+   
+   .productPage__quantity.buttons_added .minus,
+   .productPage__quantity.buttons_added .plus {
+    padding: 7px 19px 8px;
+    height: 41px;
+    background-color: #ffffff;
+    border: 1px solid #efefef;
+    cursor:pointer;}
+   
+   .productPage__quantity.buttons_added .minus {
+    border-right: 0; }
+   
+   .productPage__quantity.buttons_added .plus {
+    border-left: 0; }
+   
+   .productPage__quantity.buttons_added .minus:hover,
+   .productPage__quantity.buttons_added .plus:hover {
+    background: #eeeeee; }
+   
+   .productPage__quantity input::-webkit-outer-spin-button,
+   .productPage__quantity input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0; }
+    
+    .productPage__quantity.buttons_added .minus:focus,
+   .productPage__quantity.buttons_added .plus:focus {
+    outline: none; }
