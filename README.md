@@ -7,8 +7,13 @@ Installation:
 
 npm install
 
-To Start Server:
+To Start Server + Backend:
 
+cd functions
+firebase emulators:start 
+
+
+cd amazon-clone
 npm start
 
 To Visit App:
