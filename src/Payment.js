@@ -21,6 +21,12 @@ function Payment() {
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState(true);
+  const firstName= JSON.parse(localStorage.getItem('firstName'));
+  const lastName= JSON.parse(localStorage.getItem('lastName'));
+  const streetAddress= JSON.parse(localStorage.getItem('streetAddress'));
+  const suburb= JSON.parse(localStorage.getItem('suburb'));
+  const state= JSON.parse(localStorage.getItem('state'));
+  const postCode= JSON.parse(localStorage.getItem('postCode'));
 
   useEffect(() => {
     const getClientSecret = async () => {
@@ -94,9 +100,10 @@ function Payment() {
             <h3>Delivery Address</h3>
           </div>
           <div className="payment__address">
-            <p>{user?.email}</p>
-            <p>123 React Lane</p>
-            <p>Los Angeles, CA</p>
+            <p>{firstName} {lastName}</p>
+            <p>{streetAddress}</p>
+            <p>{suburb} </p>
+            <p>{state} {postCode}</p>
           </div>
         </div>
 
