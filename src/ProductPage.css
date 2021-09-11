@@ -111,3 +111,107 @@
     .productPage__quantity.buttons_added .minus:focus,
    .productPage__quantity.buttons_added .plus:focus {
     outline: none; }
+
+ .shipping_section {
+    height: 60px;
+    margin-top: 20px;
+    font-size: 14px;
+    border-bottom: solid 1px gray;
+    width: 300px;
+    line-height: 60px;
+    font-size: .875rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #070808;
+ }   
+
+ .returns_section {
+    height: 60px;
+    font-size: 14px;
+    width: 300px;
+    line-height: 60px;
+    font-size: .875rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #070808;
+    border-bottom: solid 1px gray;
+
+ }
+
+ .shipping_section svg {
+    vertical-align: middle;
+    margin-right: 10px;
+    fill: gray;
+ }
+
+ .returns_section svg {
+    vertical-align: middle;
+    margin-right: 10px;
+    fill: gray;
+ }
+
+ .fast_section {
+    height: 60px;
+    font-size: 14px;
+    width: 300px;
+    line-height: 60px;
+    font-size: .875rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #070808;
+ }
+
+ .fast_section svg {
+    vertical-align: middle;
+    margin-right: 10px;
+    fill: gray;
+ }
+
+ .productPage__bottom {
+     padding-left: 20px;
+ }
+
+ .productPage__review {
+    height: 100px;
+    width: 100%;
+    background: #f7f7f7;
+    margin: 20px 0;
+ }
+
+ .productPage__review p {
+     padding: 10px;
+ }
+
+ .productPage__bottom {
+     display: flex;
+ }
+
+ .productPage__reviews__left {
+     flex: 0 1 50%;
+ }
+
+ .productPage__reviews__right {
+     margin-left: 20px;
+     flex: 0 1 50%;
+ }
+
+ .productPage__reviews__right textarea {
+    width: 400px;
+    height: 96px;
+    margin-top: 21px;
+    display: block;
+ }
+
+ .productPage__reviewButton {
+     width: 406px;
+ }
+
+ .productPage__ratingsSelect {
+     display: block;
+ }
+
+ .productPage__ratingsSelect select {
+     width: 100px;
+     margin-left: 9px;
+     height: 20px;
+ }

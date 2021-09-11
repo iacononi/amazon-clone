@@ -46,14 +46,14 @@ function App() {
           <Route path="/orders">
             <Orders />
           </Route>
-          <Route path="/products/:id">
-            <ProductPage />
-          </Route>
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/checkout">
             <Checkout />
+          </Route>
+          <Route path="/products/:id">
+            <ProductPage />
           </Route>
           <Route path="/payment">
             <Elements stripe={promise}>

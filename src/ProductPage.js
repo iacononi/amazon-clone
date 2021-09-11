@@ -3,8 +3,9 @@ import './ProductPage.css';
 import { db } from "./firebase";
 import { useParams } from "react-router-dom";
 import { useStateValue } from './StateProvider';
-
-
+import LocalShippingIcon from '@material-ui/icons/LocalShipping';
+import UpdateIcon from '@material-ui/icons/Update';
+import FastForwardIcon from '@material-ui/icons/FastForward';
 
 function ProductPage() {
     const [products, setProducts] = useState([])
@@ -20,6 +21,7 @@ function ProductPage() {
         })
     }
 
+
     const { id } = useParams();
 
     return (
@@ -28,6 +30,7 @@ function ProductPage() {
                 products && products.map(product => {
                     if (product.id == id) {
                         return (
+                            <div>
                             <div className="productPage__container">
                                 <div className="productPage__left">
                                     <img src={product.image} />
@@ -47,6 +50,60 @@ function ProductPage() {
                                         <input type="button" value="-" class="minus" onClick={minusFunction}/><input type="number" id="productQuantity" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""/><input type="button" value="+" class="plus" onClick={addFunction} />
                                     </div>
                                     <Button title={product.title} price={product.price} id={product.id} img={product.image} rating={product.rating} />
+                        
+                                <div className="productPage_rightIcons">
+                                    <div className="shipping_section">
+                                     <LocalShippingIcon />Free Shipping on orders over $100           
+                                    </div>
+                                    <div className="returns_section">
+                                    <UpdateIcon /> 30 Day Returns               
+                                    </div>
+                                    <div className="fast_section">
+                                    <FastForwardIcon /> Next Day Dispatch              
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                <div className="productPage__bottom">
+                                    <div className="productPage__reviews__left">
+                                        <h3>Customer Reviews</h3>
+                                        <div className="product__rating">
+                                                {Array(product.rating)
+                                                    .fill()
+                                                    .map((_, i) => (
+                                                        <p>⭐</p>
+                                                    ))}
+
+                                            </div>
+                                        
+                                            <div className="productPage__review">
+                                            <p>⭐⭐⭐⭐<br />
+                                            This product is my favorites ever<br />
+                                            Bobby</p>
+                                            </div>   
+                                            <div className="productPage__review">
+                                            <p>⭐⭐<br />
+                                            This was an amazing book but it could be a little better <br />
+                                            Alisson</p>
+                                            </div> 
+                                        </div>
+                                    <div className="productPage__reviews__right">
+                                        <h3>Write a Review</h3>
+                                        <div className="productPage__ratingsSelect">
+                                          <label for="rating">Rating:</label>
+                                            <select id="rating" name="rating">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            </select>
+                                        <textarea>
+                                        
+                                        </textarea>
+                                        </div>
+                                        <button class="productPage__atc productPage__reviewButton" >Submit Review</button>
+                                    </div>
                                 </div>
                             </div>
                         )
