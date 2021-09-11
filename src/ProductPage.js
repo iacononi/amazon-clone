@@ -8,27 +8,55 @@ import UpdateIcon from '@material-ui/icons/Update';
 import FastForwardIcon from '@material-ui/icons/FastForward';
 
 function ProductPage() {
-    const [products, setProducts] = useState([])
+    const [products, setProducts ] = useState([])
+    const [ reviews , setReviews ] = useState([])
     useEffect(() => {
         fetchProducts();
     }, [])
 
+    const { id } = useParams();
+
+    //Get the product details from firebase 
     const fetchProducts = async () => {
         const response = db.collection('products');
         const data = await response.get();
         data.docs.forEach(item => {
             setProducts([...products, item.data()])
+            fetchReviews();
         })
     }
 
+    //Get the reviews for that product 
+    const fetchReviews = async () => {
+        const response = db.collection('products').doc(id).collection('reviews');
+        const data = await response.get();
+        data.docs.forEach(item => {
+            setReviews(oldArray => [...oldArray, item.data()])
+        })
+    }
 
-    const { id } = useParams();
+    console.log("the reviews officially are ", reviews);
+
+    var count = 0;
+    for (let i=0; i < reviews.length; i++){
+        console.log('another one ', reviews[i].rating);
+        count += reviews[i].rating;
+    }
+
+    let average = count / (reviews.length);
+    let roundedAverage = Math.round(average)
+    const stars = [];
+
+    for (let i=1; i<=roundedAverage; i++){
+        stars.push(<span>⭐</span>)
+    }
 
     return (
         <div className="productPage">
             {
                 products && products.map(product => {
                     if (product.id == id) {
+                        console.log('product is ', product)
                         return (
                             <div>
                             <div className="productPage__container">
@@ -68,24 +96,22 @@ function ProductPage() {
                                     <div className="productPage__reviews__left">
                                         <h3>Customer Reviews</h3>
                                         <div className="product__rating">
-                                                {Array(product.rating)
+                                                {stars}
+                                            </div>
+                                        { reviews.map(review => {
+                                        console.log("the review is ", review)
+                                        return (
+                                            <div className="productPage__review">
+                                            {Array(review.rating)
                                                     .fill()
                                                     .map((_, i) => (
-                                                        <p>⭐</p>
+                                                        <span>⭐</span>
                                                     ))}
-
-                                            </div>
-                                        
-                                            <div className="productPage__review">
-                                            <p>⭐⭐⭐⭐<br />
-                                            This product is my favorites ever<br />
-                                            Bobby</p>
-                                            </div>   
-                                            <div className="productPage__review">
-                                            <p>⭐⭐<br />
-                                            This was an amazing book but it could be a little better <br />
-                                            Alisson</p>
+                                            <p>{review.review}<br />
+                                            {review.name}</p>
                                             </div> 
+                                        )
+                                        })}
                                         </div>
                                     <div className="productPage__reviews__right">
                                         <h3>Write a Review</h3>
@@ -101,6 +127,8 @@ function ProductPage() {
                                         <textarea>
                                         
                                         </textarea>
+                                        <input placeholder="Name">
+                                        </input>
                                         </div>
                                         <button class="productPage__atc productPage__reviewButton" >Submit Review</button>
                                     </div>
@@ -110,6 +138,8 @@ function ProductPage() {
                     }
                 })
             }
+          
+                
         </div>
     )
 }
