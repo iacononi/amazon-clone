@@ -58,7 +58,13 @@ function App() {
                 <Payment />
               </Elements>
             </Route>
+            <Route path="/about">
+              <Contact />
+            </Route>
             <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/help">
               <Contact />
             </Route>
             <Route path="/">       

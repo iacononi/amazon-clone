@@ -51,7 +51,7 @@ function Contact() {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit(onSubmit)} id="contact_form">
+    <form className="contact-form" onSubmit={handleSubmit(onSubmit)} id="contact_form">
       <h1>Contact Us 📱</h1>
       <p className='status-message'>{statusMessage}</p>
 
