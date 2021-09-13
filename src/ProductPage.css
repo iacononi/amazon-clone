@@ -215,3 +215,8 @@
      margin-left: 9px;
      height: 20px;
  }
+
+ .productPage__ratingsSelect input {
+     display: block;
+     margin-top: 10px;
+ }

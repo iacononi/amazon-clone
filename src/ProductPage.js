@@ -51,6 +51,32 @@ function ProductPage() {
         stars.push(<span>⭐</span>)
     }
 
+     function addReview(event) {
+        event.preventDefault();
+        const rating = document.getElementById('rating').value;
+        const review = document.getElementById('review_review').value;
+        const name = document.getElementById('review_name').value;
+
+        let intRating = parseInt(rating)
+
+        const openForm = document.getElementById('review_open');
+        const success = document.getElementById('review_thanks');
+
+        db.collection("products").doc(id).collection('reviews').add({
+            name: name,
+            review: review,
+            rating: intRating
+        })
+        .then(function(docRef) {
+            console.log("Document written with ID: ", docRef.id);
+            openForm.style.display = 'none';
+            success.style.display = 'block';
+        })
+        .catch(function(error) {
+            console.error("Error adding document: ", error);
+        });
+    }
+
     return (
         <div className="productPage">
             {
@@ -114,23 +140,27 @@ function ProductPage() {
                                         })}
                                         </div>
                                     <div className="productPage__reviews__right">
-                                        <h3>Write a Review</h3>
-                                        <div className="productPage__ratingsSelect">
-                                          <label for="rating">Rating:</label>
-                                            <select id="rating" name="rating">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            </select>
-                                        <textarea>
-                                        
-                                        </textarea>
-                                        <input placeholder="Name">
-                                        </input>
+                                        <div id="review_open">
+                                            <h3>Write a Review</h3>
+                                            <div className="productPage__ratingsSelect">
+                                            <form onSubmit={addReview}>
+                                            <label for="rating">Rating:</label>
+                                                <select id="rating" name="rating">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                </select>
+                                                <input type="text" placeholder="Name" id="review_name"  />
+                                            <textarea id="review_review" placeholder="Review" />
+                                            <input type="submit" class="productPage__atc productPage__reviewButton" />
+                                            </form>
+                                            </div>
                                         </div>
-                                        <button class="productPage__atc productPage__reviewButton" >Submit Review</button>
+                                        <div id="review_thanks" style={{ display: 'none' }}>
+                                            Thanks for submitting your review
+                                        </div>
                                     </div>
                                 </div>
                             </div>
