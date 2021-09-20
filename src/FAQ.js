@@ -11,7 +11,7 @@ function FAQ() {
         <h1 className="heading">Frequently Asked Questions</h1>
       </div>
       <div className="faq-section">
-          <h3 className="section-heading">Shipping</h3>
+          <h3 className="section-heading">Tracking & Shipping</h3>
       <Accordion
         title="What is your return policy?"
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -32,7 +32,7 @@ function FAQ() {
       />
       </div>
       <div className="faq-section">
-          <h3 className="section-heading">Returns</h3>
+          <h3 className="section-heading">Order Support</h3>
       <Accordion
         title="What is your return policy?"
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
