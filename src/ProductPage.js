@@ -12,6 +12,7 @@ function ProductPage() {
     const [ reviews , setReviews ] = useState([])
     useEffect(() => {
         fetchProducts();
+        fetchReviews();
     }, [])
 
     const { id } = useParams();
@@ -21,8 +22,7 @@ function ProductPage() {
         const response = db.collection('products');
         const data = await response.get();
         data.docs.forEach(item => {
-            setProducts([...products, item.data()])
-            fetchReviews();
+            setProducts(oldArray => [...oldArray, item.data()])
         })
     }
 
@@ -36,6 +36,8 @@ function ProductPage() {
     }
 
     console.log("the reviews officially are ", reviews);
+
+      
 
     var count = 0;
     for (let i=0; i < reviews.length; i++){
@@ -91,19 +93,14 @@ function ProductPage() {
                                 </div>
                                 <div className="productPage__right">
                                     <h4>{product.title}</h4>
-                                    <p class="productPage__price">${product.price}</p>
+                                    <p className="productPage__price">${product.price}</p>
                                     <div className="product__rating">
-                                        {Array(product.rating)
-                                            .fill()
-                                            .map((_, i) => (
-                                                <p>⭐</p>
-                                            ))}
-
+                                        {stars}
                                     </div>
                                     <div className="productPage__quantity buttons_added">
                                         <input type="button" value="-" class="minus" onClick={minusFunction}/><input type="number" id="productQuantity" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""/><input type="button" value="+" class="plus" onClick={addFunction} />
                                     </div>
-                                    <Button title={product.title} price={product.price} id={product.id} img={product.image} rating={product.rating} />
+                                    <Button title={product.title} price={product.price} id={product.id} img={product.image} rating={roundedAverage} />
                         
                                 <div className="productPage_rightIcons">
                                     <div className="shipping_section">

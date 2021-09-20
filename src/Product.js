@@ -1,12 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Product.css";
 import { useStateValue } from './StateProvider';
 import { Link } from 'react-router-dom';
+import { db } from "./firebase";
 
 
-function Product({ id, title, image, price, rating }) {
+
+function Product({ id, title, image, price }) {
 
     const [{ basket }, dispatch] = useStateValue();
+    const [ reviews , setReviews ] = useState([])
+    useEffect(() => {
+        fetchReviews();
+    }, [])
+
+        //Get the reviews for that product 
+        const fetchReviews = async () => {
+            const response = db.collection('products').doc(id).collection('reviews');
+            const data = await response.get();
+            data.docs.forEach(item => {
+                setReviews(oldArray => [...oldArray, item.data()])
+            })
+        }
+    
+        console.log("the reviews officially are ", reviews);
+    
+          
+    
+        var count = 0;
+        for (let i=0; i < reviews.length; i++){
+            console.log('another one ', reviews[i].rating);
+            count += reviews[i].rating;
+        }
+    
+        let average = count / (reviews.length);
+        let roundedAverage = Math.round(average)
+        const stars = [];
+
+        for (let i=1; i<=roundedAverage; i++){
+            stars.push(<span>⭐</span>)
+        }
 
     console.log("this is basket", basket);
 
@@ -19,7 +52,7 @@ function Product({ id, title, image, price, rating }) {
                 title: title,
                 image: image,
                 price: price,
-                rating: rating,
+                rating: roundedAverage,
                 quantity: 1
             },
         });
@@ -35,11 +68,7 @@ function Product({ id, title, image, price, rating }) {
                 </p>
 
                 <div className="product__rating">
-                    {Array(rating)
-                        .fill()
-                        .map((_, i) => (
-                            <p>⭐</p>
-                        ))}
+                   {stars}
 
                 </div>
             </div>
