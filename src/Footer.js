@@ -44,8 +44,8 @@ return (
             <Link to='/contact'>
               Contact
             </Link>
-            <Link to='/help'>
-              Help
+            <Link to='/faq'>
+              FAQ
             </Link>
             
           </p>

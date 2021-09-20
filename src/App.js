@@ -13,6 +13,8 @@ import Contact from "./Contact";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Footer from "./Footer";
+import FAQ from "./FAQ";
+import About from "./About";
 
 const promise = loadStripe('pk_test_51JPloVHnY18H0aVP13YqlQu9RCru9R58Vexd7c1PycsQsr4JxxgPz2FIyjU7c9uGZqcfr7vMbWWWUiYnaiPL5l8500rWeo2ku8');
 
@@ -59,13 +61,13 @@ function App() {
               </Elements>
             </Route>
             <Route path="/about">
-              <Contact />
+              <About />
             </Route>
             <Route path="/contact">
               <Contact />
             </Route>
-            <Route path="/help">
-              <Contact />
+            <Route path="/faq">
+              <FAQ />
             </Route>
             <Route path="/">       
               <Home />
