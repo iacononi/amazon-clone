@@ -9,7 +9,7 @@
     
 }
 
-.heading{
+.main-heading{
     margin-top: 90px;
     color:white;
 }
@@ -17,7 +17,24 @@
 .faq-section{
     width: 60%;
     padding: 0 300px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.section-heading{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.contact-link{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.link a{
+    color:#FF9900;
+    text-decoration: none;
 }
 
 @media(max-width: 600px), (max-width:1100px) {
