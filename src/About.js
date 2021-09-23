@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import ImageSlider from "./Animation/ImageSlider";
 import "./About.css";
 import Aos from "aos";
@@ -14,6 +14,9 @@ import image7 from "./Animation/images/slide7.jpeg";
 import image8 from "./Animation/images/slide8.jpeg";
 
 const About = () => {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+});
   useEffect(() => {
     Aos.init({ duration: 2000 });
   });
@@ -39,7 +42,7 @@ const About = () => {
 
         <div className="grids">
           <div data-aos="fade-up" className="about-section">
-            <h1 className="section-heading">Our Story</h1>
+            <h1 className="about-section-heading">Our Story</h1>
             <p className="section-content">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -68,7 +71,7 @@ const About = () => {
           </div>
 
           <div data-aos="zoom-in" className="about-section">
-            <h1 className="section-heading">Our Mission</h1>
+            <h1 className="about-section-heading">Our Mission</h1>
             <p className="section-content">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -97,7 +100,7 @@ const About = () => {
             />
           </div>
           <div data-aos="fade-up-left" className="about-section">
-            <h1 className="section-heading">Our Values</h1>
+            <h1 className="about-section-heading">Our Values</h1>
             <p className="section-content">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.

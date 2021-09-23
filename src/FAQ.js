@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import Accordion from "./Animation/Accordion";
 import "./FAQ.css";
 import { Link } from "react-router-dom";
@@ -6,13 +6,16 @@ import { Link } from "react-router-dom";
 
 
 function FAQ() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+});
   return (
     <div>
       <div className="heading-container">
         <h1 className="main-heading">Frequently Asked Questions</h1>
       </div>
       <div className="faq-section">
-          <h3 className="section-heading">Tracking & Shipping</h3>
+          <h3 className="faq-section-heading">Tracking & Shipping</h3>
       <Accordion
         title="How long does it typically take to receive items?"
         content="You can expect to receive your items within 5-7 business days. Please keep in mind that this time does not include the processing. If you haven't received your order after 3 weeks, please contact us."
@@ -39,7 +42,7 @@ function FAQ() {
       />
       </div>
       <div className="faq-section">
-          <h3 className="section-heading">Order Support</h3>
+          <h3 className="faq-section-heading">Order Support</h3>
       <Accordion
         title="What is your return policy?"
         content="If you're not 100% satisfied with your purchase, you can return your order for a full refund for up to 50 days from the purchase date.

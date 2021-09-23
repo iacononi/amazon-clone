@@ -102,13 +102,13 @@ const ImageSlider = ({
           }}
         ></Slide>
       ))}
+      
+      <Gradient />
       <Indicator
         currentSlide={currentSlide}
         amountSlides={images.length}
         nextSlide={nextSlide}
       />
-      <Gradient />
-      
       <ChildrenWrapper>{children}</ChildrenWrapper>
     </Wrapper>
   );
