@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import "./Contact.css";
 import { useForm } from "react-hook-form";
 import { init, sendForm } from "emailjs-com";
@@ -11,6 +11,10 @@ function Contact() {
     watch,
     formState: { errors },
   } = useForm();
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+});
 
   const message = watch('contactMessage') || "";
   const messageCharsLeft = 2500 - message.length;

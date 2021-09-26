@@ -5,7 +5,7 @@ export const initialState = {
 
 // Selector which gets the price and adds it up on ATC 
 export const getBasketTotal = (basket) => 
-    basket?.reduce((amount, item) => item.price + amount, 0);
+    basket?.reduce((amount, item) => item.price*item.quantity + amount, 0);
 
 
 const reducer = (state, action) => { 
