@@ -1,5 +1,10 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 import firebase from "firebase";
+import {
+  FirebaseAuthProvider,
+  FirebaseDataProvider,
+  FirebaseRealTimeSaga
+} from 'react-admin-firebase';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCOqy0VmncTOh1RdBWJYF024Cemc1x4hRQ",
@@ -16,4 +21,21 @@ const firebaseapp = firebase.initializeApp(firebaseConfig);
 const db = firebaseapp.firestore();
 const auth = firebaseapp.auth();
 
-export { db, auth };
+const dataProvider = FirebaseDataProvider(firebaseConfig, {
+  logging: true,
+  // rootRef: 'rootrefcollection/QQG2McwjR2Bohi9OwQzP',
+  app: firebaseapp,
+  // watch: ['posts'];
+  // dontwatch: ['comments'];
+  persistence: 'local',
+  // disableMeta: true
+  dontAddIdFieldToDoc: true,
+  lazyLoading: {
+    enabled: true,
+  },
+  firestoreCostsLogger: {
+    enabled: true,
+  },
+});
+
+export { db, auth, dataProvider };
