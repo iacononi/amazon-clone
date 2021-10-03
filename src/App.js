@@ -17,6 +17,8 @@ import Footer from "./Footer";
 import FAQ from "./FAQ";
 import About from "./About";
 import Shipping from "./Shipping";
+import LiveChat from "./LiveChat";
+import Agent from "./Agent";
 
 const promise = loadStripe('pk_test_51JPloVHnY18H0aVP13YqlQu9RCru9R58Vexd7c1PycsQsr4JxxgPz2FIyjU7c9uGZqcfr7vMbWWWUiYnaiPL5l8500rWeo2ku8');
 
@@ -77,11 +79,15 @@ function App() {
             <Route path="/faq">
               <FAQ />
             </Route>
+            <Route path="/agent">
+              <Agent />
+            </Route>
             <Route path="/">       
               <Home />
             </Route>
           </Switch>
           <Footer/>
+          <LiveChat/>
       </div>
     </Router>
   );
