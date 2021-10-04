@@ -27,9 +27,7 @@ export const UserList = (props) => (
   <List {...props} filters={<UserFilter />}>
     <Datagrid>
       <TextField source="email" />
-      <TextField source="price" />
       <TextField source="id" />
-      <TextField source="image" />
       <ShowButton label="" />
       <EditButton label="" />
       <DeleteButton label="" redirect={false}/>
@@ -42,8 +40,6 @@ export const UserShow = (props) => (
     <SimpleShowLayout>
       <TextField source="id" />
       <TextField source="email" />
-      <TextField source="price" />
-      <TextField source="image" />
     </SimpleShowLayout>
   </Show>
 );
@@ -53,8 +49,6 @@ export const UserCreate = (props) => (
     <SimpleForm>
       <TextInput source="id" />
       <TextInput source="email" />
-      <TextInput source="price" />
-      <TextField source="image" />
     </SimpleForm>
   </Create>
 );
@@ -64,8 +58,6 @@ export const UserEdit = (props) => (
     <SimpleForm>
       <TextInput disabled source="id" />
       <TextInput source="email" />
-      <TextInput source="price" />
-      <TextField source="image" />
     </SimpleForm>
   </Edit>
 );
