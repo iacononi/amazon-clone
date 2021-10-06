@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Login.css'
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "./firebase";
+import { db } from "./firebase";
 
 function Login() {
     const history = useHistory();
@@ -24,10 +25,18 @@ function Login() {
                 // it successfully created a new user with email and password
                 if (auth) {
                     history.push('/')
+                    updateFirebase(email, auth)
                 }
             })
             .catch(error => alert(error.message))
+    }
 
+    function updateFirebase(email, auth){
+            let data = {
+                email: email
+            }
+            // it successfully created a new user with email and password
+                db.collection("users").doc(auth.user.uid).set(data);
     }
 
     return (
