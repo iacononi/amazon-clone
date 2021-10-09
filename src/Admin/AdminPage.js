@@ -11,6 +11,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { authProvider } from "./authProvider";
+import Dashboard from './Dashboard';
 
 //connect the data provider to the REST endpoint
 //const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
@@ -19,7 +20,7 @@ function AdminPage() {
 
     
    return (
-       <Admin dataProvider={dataProvider} authProvider={authProvider}>
+       <Admin dataProvider={dataProvider} authProvider={authProvider} dashboard={Dashboard}>
            <Resource
             name="products"
             icon={ProductIcon}
