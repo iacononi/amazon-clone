@@ -71,7 +71,7 @@ function Payment() {
         setError(null);
         setProcessing(false);
 
-        updateFirebase(paymentIntent.id, user.uid, basket, paymentIntent.amount, paymentIntent.created)
+        updateFirebase(paymentIntent.id, user.uid, basket, paymentIntent.amount, paymentIntent.created, user.email)
 
         dispatch({
           type: 'EMPTY_BASKET'
@@ -83,12 +83,14 @@ function Payment() {
   };
 
 
-  function updateFirebase(id, user, basket, amount, created){
+  function updateFirebase(id, user, basket, amount, created, email){
+    var endAmount = amount / 100;
     let data = {
        basket: basket,
-       amount: amount,
+       amount: endAmount.toFixed(2),
        created: created,
-       user: user
+       user: user,
+       email: email
     }
     // it successfully created a new user with email and password
         db.collection("orders").doc(id).set(data);

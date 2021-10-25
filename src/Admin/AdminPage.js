@@ -7,6 +7,7 @@ import { OrdersList, OrdersShow, OrdersCreate, OrdersEdit } from './OrdersList';
 import { dataProvider } from "../firebase";
 import ProductIcon from '@material-ui/icons/ShoppingBasket';
 import UserIcon from '@material-ui/icons/People';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import './admin.css';
 import { loadStripe } from "@stripe/stripe-js";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
@@ -24,7 +25,7 @@ function AdminPage() {
        <Admin dataProvider={dataProvider} authProvider={authProvider} dashboard={Dashboard}>
            <Resource
             name="products"
-            icon={ProductIcon}
+            icon={LibraryBooksIcon}
             list={ProductList}
             show={ProductShow}
             create={ProductCreate}
@@ -40,7 +41,7 @@ function AdminPage() {
             />
             <Resource
             name="orders"
-            icon={UserIcon}
+            icon={ProductIcon}
             list={OrdersList}
             show={OrdersShow}
             create={OrdersCreate}
