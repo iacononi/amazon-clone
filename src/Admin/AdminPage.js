@@ -3,6 +3,7 @@ import { Admin, Resource,ListGuesser } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import { ProductList, ProductShow, ProductCreate, ProductEdit } from './ProductsList';
 import { UserList, UserShow, UserCreate, UserEdit } from './UsersList';
+import { OrdersList, OrdersShow, OrdersCreate, OrdersEdit } from './OrdersList';
 import { dataProvider } from "../firebase";
 import ProductIcon from '@material-ui/icons/ShoppingBasket';
 import UserIcon from '@material-ui/icons/People';
@@ -36,6 +37,14 @@ function AdminPage() {
             show={UserShow}
             create={UserCreate}
             edit={UserEdit}
+            />
+            <Resource
+            name="orders"
+            icon={UserIcon}
+            list={OrdersList}
+            show={OrdersShow}
+            create={OrdersCreate}
+            edit={OrdersEdit}
             />
        </Admin>
    );
