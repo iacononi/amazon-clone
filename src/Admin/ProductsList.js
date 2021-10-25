@@ -17,6 +17,7 @@ import {
   DeleteButton,
 } from "react-admin";
 
+
 const ProductFilter = (props) => (
   <Filter {...props}>
     <TextInput label="Search" source="title" alwaysOn />

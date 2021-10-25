@@ -25,15 +25,20 @@ function Dashboard(){
         })
     }
     
+    
     console.log("the reviews officially are ", orders);
+    var totalSales = 0;
 
+    orders.map(order => {
+        totalSales += order.amount;
+    });
 
     return (
     <Card>
         <Title title="Welcome to the admin" />
         <CardContent>Welcome to the Admin!</CardContent>  
         <div className="dashboard_total">
-        <p>Total Sales: $10</p>
+        <p>Total Sales: ${totalSales}</p>
         </div>  
 
 

@@ -16,6 +16,11 @@ import {
   EditButton,
   DeleteButton,
 } from "react-admin";
+import { FunctionField } from 'react-admin';
+import { ArrayField } from 'react-admin';
+import { SingleFieldList } from 'react-admin';
+import { ChipField } from 'react-admin';
+
 
 const OrdersFilter = (props) => (
   <Filter {...props}>
@@ -26,10 +31,10 @@ const OrdersFilter = (props) => (
 export const OrdersList = (props) => (
   <List {...props} filters={<OrdersFilter />}>
     <Datagrid>
-      <TextField source="title" />
-      <TextField source="price" />
       <TextField source="id" />
-      <TextField source="image" />
+      <TextField source="amount" />
+      <TextField source="created" />
+      <TextField source="email" />
       <ShowButton label="" />
       <EditButton label="" />
       <DeleteButton label="" redirect={false}/>
@@ -41,9 +46,18 @@ export const OrdersShow = (props) => (
   <Show {...props}>
     <SimpleShowLayout>
       <TextField source="id" />
-      <TextField source="title" />
-      <TextField source="price" />
-      <TextField source="image" />
+      <TextField source="amount" />
+      <TextField source="created" />
+      <TextField source="email" />
+      <ArrayField source="basket">
+        <Datagrid>
+            <TextField source="price" />
+            <TextField source="id" />
+            <TextField source="quantity" />
+            <TextField source="title" />
+        </Datagrid>
+      </ArrayField>
+
     </SimpleShowLayout>
   </Show>
 );
