@@ -71,6 +71,8 @@ function Payment() {
         setError(null);
         setProcessing(false);
 
+        updateFirebase(paymentIntent.id, user.uid, basket, paymentIntent.amount, paymentIntent.created)
+
         dispatch({
           type: 'EMPTY_BASKET'
         })
@@ -79,6 +81,19 @@ function Payment() {
 
       })
   };
+
+
+  function updateFirebase(id, user, basket, amount, created){
+    let data = {
+       basket: basket,
+       amount: amount,
+       created: created,
+       user: user
+    }
+    // it successfully created a new user with email and password
+        db.collection("orders").doc(id).set(data);
+}
+
 
   const handleChange = (event) => {
     // Listen for changes in the CardElement
