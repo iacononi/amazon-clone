@@ -5,6 +5,7 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Link, useHistory } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
 import { auth } from "./firebase";
+import logo from './images/logo.png';
 
 function Header() {
     const history = useHistory();
@@ -25,7 +26,7 @@ function Header() {
     return (
         <div className="header">
             <Link to="/" >
-                <img className="header__logo" src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"/>
+                <img className="header__logo" src={logo} alt="Bookshouse"/>
             </Link>
 
             <div className="header__search">

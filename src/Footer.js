@@ -52,7 +52,7 @@ return (
         </div>
         
         <div className="footerBrand">
-          &copy; {new Date().getFullYear()} Amazon
+          &copy; {new Date().getFullYear()} Bookshouse
         </div> 
   </footer>  
 )
