@@ -98,7 +98,7 @@ function App() {
               <FAQ />
               <Footer/>
             </Route>
-            <Route path="/products">
+            <Route path="/catalogue">
               <Header />
               <Collection />
               <Footer/>
