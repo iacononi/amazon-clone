@@ -2,3 +2,13 @@
     max-width: 86px;
     overflow: hidden;
 }
+
+.dashboard_total {
+    padding: 16px;
+    border: solid 1px black;
+    width: 200px;
+    height: 122px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+}

@@ -1,4 +1,4 @@
-// in src/Product.js
+// in src/Orders.js
 import * as React from "react";
 // tslint:disable-next-line:no-var-requires
 import {
@@ -16,21 +16,25 @@ import {
   EditButton,
   DeleteButton,
 } from "react-admin";
+import { FunctionField } from 'react-admin';
+import { ArrayField } from 'react-admin';
+import { SingleFieldList } from 'react-admin';
+import { ChipField } from 'react-admin';
 
 
-const ProductFilter = (props) => (
+const OrdersFilter = (props) => (
   <Filter {...props}>
     <TextInput label="Search" source="title" alwaysOn />
   </Filter>
 );
 
-export const ProductList = (props) => (
-  <List {...props} filters={<ProductFilter />}>
+export const OrdersList = (props) => (
+  <List {...props} filters={<OrdersFilter />}>
     <Datagrid>
-      <TextField source="title" />
-      <TextField source="price" />
       <TextField source="id" />
-      <TextField source="image" />
+      <TextField source="amount" />
+      <TextField source="created" />
+      <TextField source="email" />
       <ShowButton label="" />
       <EditButton label="" />
       <DeleteButton label="" redirect={false}/>
@@ -38,18 +42,27 @@ export const ProductList = (props) => (
   </List>
 );
 
-export const ProductShow = (props) => (
+export const OrdersShow = (props) => (
   <Show {...props}>
     <SimpleShowLayout>
       <TextField source="id" />
-      <TextField source="title" />
-      <TextField source="price" />
-      <TextField source="image" />
+      <TextField source="amount" />
+      <TextField source="created" />
+      <TextField source="email" />
+      <ArrayField source="basket">
+        <Datagrid>
+            <TextField source="price" />
+            <TextField source="id" />
+            <TextField source="quantity" />
+            <TextField source="title" />
+        </Datagrid>
+      </ArrayField>
+
     </SimpleShowLayout>
   </Show>
 );
 
-export const ProductCreate = (props) => (
+export const OrdersCreate = (props) => (
   <Create {...props} >
     <SimpleForm>
       <TextInput source="id" />
@@ -60,7 +73,7 @@ export const ProductCreate = (props) => (
   </Create>
 );
 
-export const ProductEdit = (props) => (
+export const OrdersEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
       <TextInput disabled source="id" />
