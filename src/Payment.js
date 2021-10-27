@@ -118,6 +118,7 @@ function Payment() {
           </div>
           <div className="payment__address">
             <p>{firstName} {lastName}</p>
+            <p>{user?.email}</p>
             <p>{streetAddress}</p>
             <p>{suburb} </p>
             <p>{state} {postCode}</p>

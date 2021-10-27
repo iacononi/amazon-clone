@@ -17,7 +17,9 @@ import Footer from "./Footer";
 import FAQ from "./FAQ";
 import About from "./About";
 import Shipping from "./Shipping";
+import LiveChat from "./LiveChat";
 import AdminPage from "./Admin/AdminPage";
+import Collection from "./Collection";
 
 const promise = loadStripe('pk_test_51JPloVHnY18H0aVP13YqlQu9RCru9R58Vexd7c1PycsQsr4JxxgPz2FIyjU7c9uGZqcfr7vMbWWWUiYnaiPL5l8500rWeo2ku8');
 
@@ -51,11 +53,13 @@ function App() {
           <Route path="/orders">
               <Header />
               <Orders />
+              <LiveChat/>
               <Footer/>
             </Route>
             <Route path="/login">
               <Header />
               <Login />
+              <LiveChat/>
               <Footer/>
             </Route>
             <Route path="/admin" component={AdminPage}>
@@ -63,16 +67,19 @@ function App() {
             <Route path="/checkout">
               <Header />
               <Checkout />
+              <LiveChat/>
               <Footer/>
             </Route>
             <Route path="/products/:id">
               <Header />
               <ProductPage />
+              <LiveChat/>
               <Footer/>
             </Route>
             <Route path="/shipping">
               <Header />
               <Shipping />
+              <LiveChat/>
               <Footer/>
             </Route>
             <Route path="/payment">
@@ -80,26 +87,36 @@ function App() {
               <Elements stripe={promise}>
                 <Payment />
               </Elements>
+              <LiveChat/>
               <Footer/>
             </Route>
             <Route path="/about">
               <Header />
               <About />
+              <LiveChat/>
               <Footer/>
             </Route>
             <Route path="/contact">
               <Header />
               <Contact />
+              <LiveChat/>
               <Footer/>
             </Route>
             <Route path="/faq">
               <Header />
               <FAQ />
+              <LiveChat/>
+              <Footer/>
+            </Route>
+            <Route path="/catalogue">
+              <Header />
+              <Collection />
               <Footer/>
             </Route>
             <Route path="/">   
               <Header />    
               <Home />
+              <LiveChat/>
               <Footer/>
             </Route>
           </Switch>

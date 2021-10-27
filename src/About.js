@@ -65,7 +65,7 @@ const About = () => {
 
           <div data-aos="flip-right">
             <img className="image-section"
-              src="https://images.unsplash.com/photo-1624521793559-136bfe16fc86?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80"
+              src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
               alt="amazon-image1"
             />
           </div>

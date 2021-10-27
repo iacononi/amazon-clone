@@ -15,6 +15,11 @@ import {
   ShowButton,
   EditButton,
   DeleteButton,
+  ArrayInput,
+  ArrayField,
+  SingleFieldList,
+  ChipField,
+  SimpleFormIterator
 } from "react-admin";
 
 
@@ -31,6 +36,11 @@ export const ProductList = (props) => (
       <TextField source="price" />
       <TextField source="id" />
       <TextField source="image" />
+      <ArrayField source="category">
+        <SingleFieldList>
+          <ChipField/>
+        </SingleFieldList>
+      </ArrayField>
       <ShowButton label="" />
       <EditButton label="" />
       <DeleteButton label="" redirect={false}/>
@@ -45,6 +55,11 @@ export const ProductShow = (props) => (
       <TextField source="title" />
       <TextField source="price" />
       <TextField source="image" />
+      <ArrayField source="category">
+        <SingleFieldList>
+          <ChipField/>
+        </SingleFieldList>
+      </ArrayField>
     </SimpleShowLayout>
   </Show>
 );
@@ -56,6 +71,11 @@ export const ProductCreate = (props) => (
       <TextInput source="title" />
       <TextInput source="price" />
       <TextInput source="image" />
+      <ArrayInput source="category">
+      <SimpleFormIterator >
+        <TextInput />
+    </SimpleFormIterator>
+      </ArrayInput>
     </SimpleForm>
   </Create>
 );
@@ -67,6 +87,11 @@ export const ProductEdit = (props) => (
       <TextInput source="title" />
       <TextInput source="price" />
       <TextInput source="image" />
+      <ArrayInput source="category">
+      <SimpleFormIterator >
+        <TextInput/>
+    </SimpleFormIterator>
+      </ArrayInput>
     </SimpleForm>
   </Edit>
 );
