@@ -26,7 +26,10 @@ function Home() {
     return (
         <div className="home">
             <div className="home__container">
-                <img className="home__image" src="https://images-fe.ssl-images-amazon.com/images/G/35/kindle/journeys/ZjBiMDcxY2Qt/ZjBiMDcxY2Qt-MjM2M2JkNWIt-w1500._CB645256551_.jpg" alt="" />
+                <div className="home__container">
+                <img className="home__image" src="https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" />
+                <h1 className="home-heading">bookshouse</h1>
+                </div>
                 <div className="home__row">
                 {
                 products && products.map(product => {
